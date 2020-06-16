@@ -5,6 +5,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<form th:action="@{/ex05/ex05-result}" method="post" th:object="${exam05Form}">
+名前：<input type="text" name="name" th:field="*{name}">
+<button>検索</button>
+</form>
 </body>
 </html>
