@@ -1,9 +1,15 @@
 package com.form;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 public class Exam04Form {
 
+	@NotBlank(message = "入力して")
 	private String name;
+	@NotNull(message = "入力して")
 	private Integer age;
+	@NotBlank(message = " 入力して")
 	private String comment;
 	public String getName() {
 		return name;

@@ -2,6 +2,8 @@ package com.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -9,6 +11,7 @@ import com.domain.User;
 import com.form.Exam04Form;
 
 @Controller
+@Validated
 @RequestMapping("/ex04")
 public class Exam04Controller {
 
@@ -23,7 +26,11 @@ public class Exam04Controller {
 	}
 	
 	@RequestMapping("/ex04-result")
-	public String result(Model model,Exam04Form form) {
+	public String result(Model model,@Validated Exam04Form form,BindingResult result) {
+		if(result.hasErrors()) {
+			return index();
+		}
+		
 		User user=new User();
 		user.setName(form.getName());
 		user.setAge(form.getAge());

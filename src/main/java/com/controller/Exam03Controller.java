@@ -35,9 +35,6 @@ public class Exam03Controller {
 		Integer total=item1+item2+item3;
 		Integer newTotal=(int) (total*1.1);
 		
-		application.setAttribute("item1", item1);
-		application.setAttribute("item2", item2);
-		application.setAttribute("item3", item3);
 		application.setAttribute("total", total);
 		application.setAttribute("newTotal", newTotal);
 		
